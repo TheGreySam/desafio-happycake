@@ -1,42 +1,67 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-//import MenuIcon from '@mui/icons-material/Menu';
+//import AdbIcon from '@mui/icons-material/Adb';
+import { red } from '@mui/material/colors';
+import CakeIcon from '@mui/icons-material/Cake';
+import { Link } from 'react-router-dom';
+import { createTheme } from '@mui/system';
 
-export default function Navigation() {
+
+function ResponsiveAppBar() {
+
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position='static'>
-                <Toolbar>
-                    <IconButton
-                    size='large'
-                    edge='start'
-                    color='inherit'
-                    aria-label='menu'
-                    sx={{ mr:2 }}
-                    >
-                        <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-                        News
-                    </Typography>
-                    </IconButton>
+        <AppBar position="static">
+            <Container maxWidth="xl"  sx={{ color: red[500] }}>
+                <Toolbar disableGutters>
                     
-                    <Button color='inherit'>
-                        <Link to='/'>
-                            Home
-                        </Link>
-                    </Button>
-                    <Button color='inherit'>
-                        <Link to='/contacto'>
-                        Contacto
-                        </Link>
-                    </Button>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        <Button
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            <Link to='/'>
+                                Home
+                            </Link>
+                        </Button>
+                        <Button
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            <Link to='/contacto'>
+                                Contacto
+                            </Link>
+                        </Button>
+                    </Box>
+
+                    <Box sx={{ flexGrow: 0 }}>
+                    
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        Happy Cake
+                        <span>
+                        <CakeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        </span>
+                    </Typography>
+                        
+                    </Box>
                 </Toolbar>
-            </AppBar>
-        </Box>
-    )
+            </Container>
+        </AppBar>
+    );
 }
+export default ResponsiveAppBar;
