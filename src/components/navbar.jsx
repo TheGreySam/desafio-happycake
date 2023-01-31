@@ -9,16 +9,15 @@ import Button from '@mui/material/Button';
 import { red } from '@mui/material/colors';
 import CakeIcon from '@mui/icons-material/Cake';
 import { Link } from 'react-router-dom';
-import { createTheme } from '@mui/system';
+
 
 
 function ResponsiveAppBar() {
 
     return (
-        <AppBar position="static">
-            <Container maxWidth="xl"  sx={{ color: red[500] }}>
-                <Toolbar disableGutters>
-                    
+        <AppBar position="static" sx={{ bgcolor: red[500] }}>
+            <Container maxWidth="xl"  >
+                <Toolbar disableGutters > 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Button
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -35,13 +34,10 @@ function ResponsiveAppBar() {
                             </Link>
                         </Button>
                     </Box>
-
                     <Box sx={{ flexGrow: 0 }}>
-                    
                     <Typography
                         variant="h6"
                         noWrap
-                        
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -57,7 +53,6 @@ function ResponsiveAppBar() {
                         <CakeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         </span>
                     </Typography>
-                        
                     </Box>
                 </Toolbar>
             </Container>
